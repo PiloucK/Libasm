@@ -1,27 +1,23 @@
-extern  ft_strlen
-
 section .text
         global ft_strcmp
 
     ft_strcmp:
-        mov r8, rdi
-        mov r9, rsi
+        mov     rax, rdi
+        mov     rdx, rsi
 
-        push rbp
-        call ft_strlen
-        pop rbp
+    ft_strcmp_loop:
+        mov     cl, byte [rax]
+        mov     ch, byte [rdx]
+        inc     rdx
+        inc     rax
+        cmp     cl, ch
+        jne     ft_strcmp_end
 
-        mov rdi, r8
-        mov rsi, r9
-        inc rax
-        mov rcx, rax
-        repe cmpsb
+        test    cl, cl
+        jnz     ft_strcmp_loop
 
-        dec rsi
-        dec rdi
-        ; xor rax, rax
-        
-        ; cmovz rax, 0
-        ; cmovg rax, 1
-        ; cmovb rax, -1
+    ft_strcmp_end:
+        sub     cl, ch
+        xor     rax, rax
+        movsx   rax, cl
         ret
