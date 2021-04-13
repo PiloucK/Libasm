@@ -11,7 +11,7 @@ section .text
         call    ft_strlen
         mov     rsi, rdi
         mov     rdi, rax
-        call    malloc      ;. deal with errno ?
+        call    malloc
         mov     rdi, rax
         call    ft_strcpy
 
