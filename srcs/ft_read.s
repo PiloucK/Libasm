@@ -8,6 +8,7 @@ section .text
         syscall                     ;. in case of error the  syscall
                                     ; returns a value between -1 and
                                     ; -4095
+        test    rax, rax
         js      ft_read_error       ;. and set errno if lower
 
         ret

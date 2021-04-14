@@ -6,14 +6,16 @@ section .text
         global ft_strdup
 
     ft_strdup:
-        push    rdi
-
+        push    rdi             ;. save string address on the stack
         call    ft_strlen
-        mov     rsi, rdi
         mov     rdi, rax
         call    malloc
+        test    rax, rax
+        jz      ft_strdup_error
+
         mov     rdi, rax
+        pop     rsi             ;. put saved address to rsi from stack
         call    ft_strcpy
 
-        pop     rdi
+    ft_strdup_error:
         ret

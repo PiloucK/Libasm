@@ -1,8 +1,8 @@
 ; Calculate the length of a NULL terminated C-string excluding the terminating
 ; null byte '\0'.
 ;
-; Expected input in:    edi = address of the begining of the string
-; Expect output in:     eax = length of the string, excluding terminating byte
+; Expected input in:    rdi = address of the begining of the string
+; Expect output in:     rax = length of the string, excluding terminating byte
 ; Clobbers:             flags, CL
 
 ; For learning purposes this implementation is the "loop then sub addresses"

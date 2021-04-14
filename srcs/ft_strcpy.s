@@ -8,7 +8,7 @@ section .text
     ft_strcpy_loop:
         mov     cl, byte [rdx]
         mov     byte [rax], cl
-        inc     edx
+        inc     rdx
         inc     rax
         test    cl, cl
         jnz     ft_strcpy_loop
